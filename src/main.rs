@@ -1,25 +1,49 @@
 use text_io::read;
 
 fn main() {
+    
+    loop {
 
-    println!("What do you want to do?");
-    println!("1. Single operator calculations");
-    println!("2. Double operator caclulations");
-    let choice: i8 = read!(); // Choose between options
+        println!("What do you want to do?");
+        println!("1. Single digit calculations");
+        println!("2. Double digit calculations");
+        println!("3. Triple digit caclulations");
+        println!("4. Exit");
+        let choice: i8 = read!(); // Choose between options
 
-    match choice {
-        1 => one_operator_calculation(),
-        2 => two_operator_calculation(),
-        _ => println!("Invalid unput!"),
+        match choice {
+            1 => one_number_calculations(),
+            2 => one_operator_calculation(),
+            3 => two_operator_calculation(),
+            4 => break,
+            _ => println!("Invalid input!"),
+        }
+
     }
 
+}
+
+fn one_number_calculations() {
+    print!("Enter the number: ");
+    let number: f64 = read!();
+
+    print!("Enter the operator (s for square root, a for sine, c for cosine, t for tangent): ");
+    let operator: char = read!();
+
+    match operator {
+        's' => println!("{}√={}", number, number.sqrt()),
+        'a' => println!("sin({})={}", number, number.sin()),
+        'c' => println!("cos({})={}", number, number.cos()),
+        't' => println!("tan({})={}", number, number.tan()),
+        _ =>   println!("Invalid operator.") 
+    }
 }
 
 fn one_operator_calculation() { // Conducts one operator calculations with a match statement
     print!("Enter the first number: ");
     let number_1: f64 = read!();
 
-    print!("Enter the operator (+, -, *, /): ");
+    print!("Enter the operator (+, -, *, /, ^): ");
     let operator: char = read!();
     
     print!("Enter the second number: ");
@@ -36,7 +60,8 @@ fn one_operator_calculation() { // Conducts one operator calculations with a mat
                 println!("{}/{}={}", number_1, number_2, number_1 + number_2);
                 }   
             },
-            _ => println!("Error: Invalid operator!"),
+        '^' => println!("{}^{}={}", number_1, number_2, number_1.powf(number_2)),
+        _ =>   println!("Error: Invalid operator ({}), supported operators are: +, -, *, / and ^", operator),
     }
     
 }
@@ -86,7 +111,7 @@ fn two_operator_calculation() { // Conducts two operator calculations using matc
             else if operator_2 == '/' { println!("{}/{}/{}={}", number_1, number_2, number_3, number_1 / number_2 / number_3)}
             else { println!("Error: Invalid second operator ({})", operator_2) }
         }
-        _ => println!("Error: Invalid first operator ({})", operator_1)
+        _ => println!("Error: Invalid first operator ({}), supported operators are: +, -, *, /", operator_1)
     }
     
 }
