@@ -3,14 +3,14 @@ use text_io::read;
 fn main() {
 
     println!("What do you want to do?");
-    println!("1. 1 Operator Calculations");
-    println!("2. 2 Operator Caclulations");
+    println!("1. Single operator calculations");
+    println!("2. Double operator caclulations");
     let choice: i8 = read!(); // Choose between options
 
     match choice {
         1 => one_operator_calculation(),
         2 => two_operator_calculation(),
-        _ => println!("Invalid Input!"),
+        _ => println!("Invalid unput!"),
     }
 
 }
@@ -63,30 +63,30 @@ fn two_operator_calculation() { // Conducts two operator calculations using matc
             else if operator_2 == '-' { println!("{}+{}-{}={}", number_1, number_2, number_3, number_1 + number_2 - number_3)}
             else if operator_2 == '*' { println!("{}+{}*{}={}", number_1, number_2, number_3, number_1 + number_2 * number_3)}
             else if operator_2 == '/' { println!("{}+{}/{}={}", number_1, number_2, number_3, number_1 + number_2 / number_3)}
-            else { println!("Error: Invalid Second Operator ({})", operator_2) }
+            else { println!("Error: Invalid second operator ({})", operator_2) }
         }
         '-' => {
             if operator_2 == '+' { println!("{}-{}+{}={}", number_1, number_2, number_3, number_1 - number_2 + number_3) }
             else if operator_2 == '-' { println!("{}-{}-{}={}", number_1, number_2, number_3, number_1 - number_2 - number_3)}
             else if operator_2 == '*' { println!("{}-{}*{}={}", number_1, number_2, number_3, number_1 - number_2 * number_3)}
             else if operator_2 == '/' { println!("{}-{}/{}={}", number_1, number_2, number_3, number_1 - number_2 / number_3)}
-            else { println!("Error: Invalid Second Operator ({})", operator_2) }
+            else { println!("Error: Invalid second operator ({})", operator_2) }
         }
         '*' => {
             if operator_2 == '+' { println!("{}*{}+{}={}", number_1, number_2, number_3, number_1 * number_2 + number_3) }
             else if operator_2 == '-' { println!("{}*{}-{}={}", number_1, number_2, number_3, number_1 * number_2 - number_3)}
             else if operator_2 == '*' { println!("{}*{}*{}={}", number_1, number_2, number_3, number_1 * number_2 * number_3)}
             else if operator_2 == '/' { println!("{}+{}/{}={}", number_1, number_2, number_3, number_1 * number_2 / number_3)}
-            else { println!("Error: Invalid Second Operator ({})", operator_2) }
+            else { println!("Error: Invalid second operator ({})", operator_2) }
         }
         '/' => {
             if operator_2 == '+' { println!("{}/{}+{}={}", number_1, number_2, number_3, number_1 / number_2 + number_3) }
             else if operator_2 == '-' { println!("{}/{}-{}={}", number_1, number_2, number_3, number_1 / number_2 - number_3)}
             else if operator_2 == '*' { println!("{}/{}*{}={}", number_1, number_2, number_3, number_1 / number_2 * number_3)}
             else if operator_2 == '/' { println!("{}/{}/{}={}", number_1, number_2, number_3, number_1 / number_2 / number_3)}
-            else { println!("Error: Invalid Second Operator ({})", operator_2) }
+            else { println!("Error: Invalid second operator ({})", operator_2) }
         }
-        _ => println!("Error: Invalid First Operator ({})", operator_1)
+        _ => println!("Error: Invalid first operator ({})", operator_1)
     }
     
 }
