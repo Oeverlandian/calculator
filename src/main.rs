@@ -31,10 +31,10 @@ fn one_number_calculations() {
     let operator: char = read!();
 
     match operator {
-        's' => println!("{}√={}", number, number.sqrt()),
-        'a' => println!("sin({})={}", number, number.sin()),
-        'c' => println!("cos({})={}", number, number.cos()),
-        't' => println!("tan({})={}", number, number.tan()),
+        's' => println!("{}√={}", number, number.to_radians().sqrt()),
+        'a' => println!("sin({})={}", number, number.to_radians().sin()),
+        'c' => println!("cos({})={}", number, number.to_radians().cos()),
+        't' => println!("tan({})={}", number, number.to_radians().tan()),
         _ =>   println!("Invalid operator.") 
     }
 }
